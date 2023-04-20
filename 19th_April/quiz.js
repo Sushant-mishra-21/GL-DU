@@ -1,7 +1,7 @@
 let score = 0;
-let timeleft = 2225;
+let timeleft = 25;
 const timer = document.querySelector("#timer");
-
+let count =0;  
 const interval = setInterval(() => {
   timeleft--;
   if (timeleft > 60) {
@@ -20,17 +20,13 @@ const interval = setInterval(() => {
   }
 }, 1000);
 const getData =async ()=>{
+  
   const res = await fetch(
   "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium"
 )
-  // .then((Response) => Response.json())
-  // .then((data) => {
-  //   console.log(data);
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
+  
   const data = await res.json();
-  console.log(data.results)
+  console.log(data.results[count].question)
+  count++;
 }
 getData()
