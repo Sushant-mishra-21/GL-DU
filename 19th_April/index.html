@@ -32,7 +32,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h3>Q. <span> What does HTML stands for?</span></h3>
+                <h3>Q. <span id="question"> Question Loading!!</span></h3>
               </div>
               <div class="modal-body">
                 <div class="col-xs-3 5"></div>
@@ -42,8 +42,8 @@
                     ><span class="btn-label"
                       ><i class="glyphicon glyphicon-chevron-right"></i
                     ></span>
-                    <input type="radio" name="q_answer" value="1" /><span
-                      >HyperText Markup Language.</span
+                    <input type="radio" name="q_answer" value="1"  /><span id="option1"
+                      >Loading Option 1</span
                     >
                   </label>
                   <label
@@ -51,8 +51,8 @@
                     ><span class="btn-label"
                       ><i class="glyphicon glyphicon-chevron-right"></i
                     ></span>
-                    <input type="radio" name="q_answer" value="2" /><span
-                      >HighText Markup Language.</span
+                    <input type="radio" name="q_answer" value="2" /><span id="option2"
+                      >Loading Option 2</span
                     ></label
                   >
                   <label
@@ -60,8 +60,8 @@
                     ><span class="btn-label"
                       ><i class="glyphicon glyphicon-chevron-right"></i
                     ></span>
-                    <input type="radio" name="q_answer" value="3" /><span
-                      >HyperText Markdown Language.</span
+                    <input type="radio" name="q_answer" value="3" /><span id="option3"
+                      >Loading Option 3</span
                     ></label
                   >
                   <label
@@ -69,13 +69,13 @@
                     ><span class="btn-label"
                       ><i class="glyphicon glyphicon-chevron-right"></i
                     ></span>
-                    <input type="radio" name="q_answer" value="4" /><span
-                      >None of the above.</span
+                    <input type="radio" name="q_answer" value="4" /><span id="option4"
+                      >Loading Option 4</span
                     ></label
                   >
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button class="btn btn-sub me-md-3 m-2" type="button">
+                  <button class="btn btn-sub me-md-3 m-2" type="button" onclick="buttonClicked()">
                     Save & Next
                   </button>
                 </div>

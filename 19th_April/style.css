@@ -139,6 +139,7 @@ label .glyphicon {
 }
 .btn-sub{
   background-color:#6573b9;
+  color: white;
 }
 .btn-sub:hover{
   background-color:rgb(104, 233, 104);
