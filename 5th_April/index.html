@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Task</title>
+  </head>
+  <body>
+    <form action="/" method="post">
+      <h2>EDUCATION APPOINTMENT FORM</h2>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+        />
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+        />
+        <input
+          type="number"
+          class="form-control"
+          id="phone"
+          name="phone"
+          placeholder="Phone Number"
+        />
+
+        <select name="Course" id="course" class="form-control">
+          <option selected disabled hidden>Course Type</option>
+          <option value="Btech">B Tech</option>
+          <option value="BCOM">BCOM</option>
+          <option value="BA">BA</option>
+        </select>
+        <h3>How would you like to be located?</h3>
+
+        <select name="Phone Contact" id="phoneContact" class="form-control">
+          <option selected disabled hidden>By phone</option>
+          <option value="Phone1">Phone1</option>
+          <option value="Phone2">Phone2</option>
+          <option value="Phone3">Phone3</option>
+        </select>
+
+        <select name="Hours" id="hours" class="form-control">
+          <option selected disabled hidden class="tg">Hours : 8am 10pm</option>
+          <option value="Time1">Time 1</option>
+          <option value="Time2">Time 2</option>
+          <option value="Time3">Time 3</option>
+        </select>
+        <br />
+        <div class="checkbox-btn">
+        <input type="checkbox" name="checkbox" id="chk" />
+        <label for="checkbox" 
+          >I agree to the <u><a href="">Terms and Conditions</a></u></label
+        >
+        
+        </div>
+      </div>
+      <button >Request an appointment</button>
+    </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>

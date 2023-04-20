@@ -1,0 +1,65 @@
+body {
+  background-image: url("body-bg.jpg");
+}
+form {
+  background-color: white;
+  margin: 50px;
+  margin-left: 100px;
+  width: 40%;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+.form-control {
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
+  width: 80%;
+  padding: 10px 5px;
+  margin: 10px;
+  margin-left: 0;
+  outline: none;
+}
+
+input::placeholder{
+  color: black;
+}
+select{
+  color: black;
+}
+h2,
+h3 {
+  text-align: start;
+  margin-left: 40px;
+}
+button {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 06px;
+  display: flex;
+  justify-content: start;
+  margin-left:2.5rem;
+  margin-bottom:50px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.checkbox-btn {
+  display: flex;
+  justify-content: start;
+  margin-left:2.0rem;
+  padding: 10px;
+}
+
+.form-control:hover{
+  border: 1.5px solid #808080;
+}
+button:hover{
+  box-shadow: 0px 0px 5px #333;
+  transform: scale(2.5);
+  transform: rotate(2deg);
+}
