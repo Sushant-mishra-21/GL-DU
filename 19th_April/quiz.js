@@ -1,5 +1,7 @@
 let score = 0;
-let timeleft = 25;
+let timeleft = 25;//125 seconds => 2 minutes and 5 seconds
+let data = undefined;
+let data_correct_answer = undefined;
 const timer = document.querySelector("#timer");
 const question = document.querySelector("#question");
 const option1 = document.querySelector("#option1");
@@ -7,6 +9,9 @@ const option2 = document.querySelector("#option2");
 const option3 = document.querySelector("#option3");
 const option4 = document.querySelector("#option4");
 const button = document.querySelector(".btn-sub");
+const opt = document.querySelectorAll(".ans");
+var div_array = [...opt];
+
 let count = 0;
 let dataLength = 0;
 const interval = setInterval(() => {
@@ -24,6 +29,7 @@ const interval = setInterval(() => {
   if (timeleft == 0) {
     clearInterval(interval);
     timer.innerHTML = `Time up!`;
+    // testCompleted(); This is to be done 
   }
 }, 1000);
 const getData = async () => {
@@ -31,28 +37,56 @@ const getData = async () => {
     "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium"
   );
 
-  const data = await res.json();
+  data = await res.json();
   question.innerHTML = data.results[count].question;
   option1.innerHTML = data.results[count].correct_answer;
   option2.innerHTML = data.results[count].incorrect_answers[0];
   option3.innerHTML = data.results[count].incorrect_answers[1];
   option4.innerHTML = data.results[count].incorrect_answers[2];
-  console.log(data.results);
   dataLength = data.results.length;
-  console.log(dataLength);
+  data_correct_answer = data.results[count].correct_answer;
+  console.log(data_correct_answer);
 };
 getData();
 
-function buttonClicked() {
+function SavebuttonClicked() {
   count++;
+  getValue();
   if (count <= dataLength) {
+    const labels = document.querySelectorAll("label");
+    labels.forEach((label) => {
+      label.classList.remove("green");
+    });
     getData();
   } else {
     testCompleted();
   }
 }
+
+opt.forEach((radio) => {
+  radio.addEventListener("click", function () {
+    const labels = document.querySelectorAll("label");
+    labels.forEach((label) => {
+      label.classList.remove("green");
+    });
+    const label = this.closest("label");
+    label.classList.add("green");
+  });
+});
+
+function getValue() {
+  div_array.forEach((arr) => {
+    if (arr.checked == true) {
+      alert(arr.value);
+    }
+  });
+}
 function testCompleted() {
   button.disabled = true;
   alert("Test Finished!");
   window.location.href = "TestFinished.html";
+}
+
+function calculateScore(){
+  
 }
