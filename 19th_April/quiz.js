@@ -1,7 +1,8 @@
 let score = 0;
-let timeleft = 25;//125 seconds => 2 minutes and 5 seconds
+let timeleft = 10; //125 seconds => 2 minutes and 5 seconds
 let data = undefined;
 let data_correct_answer = undefined;
+let data_selected_answer = undefined;
 const timer = document.querySelector("#timer");
 const question = document.querySelector("#question");
 const option1 = document.querySelector("#option1");
@@ -10,8 +11,9 @@ const option3 = document.querySelector("#option3");
 const option4 = document.querySelector("#option4");
 const button = document.querySelector(".btn-sub");
 const opt = document.querySelectorAll(".ans");
-var div_array = [...opt];
-
+const showScore = document.querySelector("#showScore");
+let div_array = [...opt];
+let optionsArray = [];
 let count = 0;
 let dataLength = 0;
 const interval = setInterval(() => {
@@ -29,7 +31,8 @@ const interval = setInterval(() => {
   if (timeleft == 0) {
     clearInterval(interval);
     timer.innerHTML = `Time up!`;
-    // testCompleted(); This is to be done 
+    count = 0;
+    testCompleted();
   }
 }, 1000);
 const getData = async () => {
@@ -45,7 +48,13 @@ const getData = async () => {
   option4.innerHTML = data.results[count].incorrect_answers[2];
   dataLength = data.results.length;
   data_correct_answer = data.results[count].correct_answer;
-  console.log(data_correct_answer);
+  optionsArray = [];
+  optionsArray = [
+    data.results[count].correct_answer,
+    data.results[count].incorrect_answers[0],
+    data.results[count].incorrect_answers[1],
+    data.results[count].incorrect_answers[2],
+  ];
 };
 getData();
 
@@ -77,16 +86,23 @@ opt.forEach((radio) => {
 function getValue() {
   div_array.forEach((arr) => {
     if (arr.checked == true) {
-      alert(arr.value);
+      // alert(arr.value);
+      data_selected_answer = arr.value;
+      calculateScore();
     }
   });
 }
 function testCompleted() {
   button.disabled = true;
   alert("Test Finished!");
-  window.location.href = "TestFinished.html";
+  showScore.innerHTML = "You Scored " + score + " marks out of 10!";
 }
 
-function calculateScore(){
-  
+function calculateScore() {
+  if (data_correct_answer === optionsArray[data_selected_answer - 1]) {
+    console.log("OK");
+    score = score + 1;
+  } else {
+    console.log("NOt OK");
+  }
 }
